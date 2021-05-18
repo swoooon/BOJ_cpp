@@ -3,7 +3,7 @@
 using namespace std;
 typedef long long ll;
 
-const int mod = 1e6+3;
+const int mod = 1e9+7;
 
 struct Matrix{
 	int size;
