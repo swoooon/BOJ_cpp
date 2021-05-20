@@ -24,24 +24,24 @@ void solve() {
     ll ans = 0;
     vector<ll> prime;
     for (int i = 2; i < int(sqrt(N)+1); i++) {
-        if (N % i == 0) {
+        if (temp % i == 0) {
             prime.push_back(i);
-            while (N % i == 0) N /= i;
+            while (temp % i == 0) temp /= i;
         }
     }
     
     
-    if (N != 1) prime.push_back(N);
+    if (temp != 1) prime.push_back(temp);
     ll size = prime.size();
     for (ll bit = 1; bit < (1<<size); bit++) {
         ll intersect = 0, fac = 1;
         for (ll j = 0; j < size; j++) {
             if (bit & (1<<j)) intersect++, fac*=prime[j];
         }
-        if (intersect % 2) ans += (temp/fac);
-        else ans -= (temp/fac);
+        if (intersect % 2) ans += (N/fac);
+        else ans -= (N/fac);
     }
-    cout << temp - ans << '\n';
+    cout << N - ans << '\n';
 }
 
 
