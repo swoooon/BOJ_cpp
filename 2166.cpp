@@ -5,9 +5,6 @@ typedef long long ll;
 typedef pair<ll, ll> pii;
 typedef long double ld;
 #define ct(x) cout << x << '\n'
-#define ct2(x, y) cout << x << ' ' << y << '\n'
-#define ct3(x, y, z) cout << x << ' ' << y << ' ' << z << '\n'
-#define ct4(x, y, z, w) cout << x << ' ' << y << ' ' << z << ' ' << w << '\n'
 
 const ll mod = 1e9+7;
 int dy[4] = {1, 0, -1, 0}, dx[4] = {0, 1, 0, -1};
@@ -28,8 +25,27 @@ void debug() {
 
 
 
-void solve() {
 
+int N;
+pii arr[10101];
+
+ld ccw(ld x1, ld y1, ld x2, ld y2) {
+    return x1*y2-x2*y1;
+}
+
+void solve() {
+    cin >> N;
+    for (int i=0; i < N; i++) {
+        cin >> arr[i].first >> arr[i].second;
+    }
+    ld temp = 0;
+    for (int i = 1; i < N-1; i++) {
+        temp += ccw(arr[i].first-arr[0].first, arr[i].second-arr[0].second, arr[i+1].first-arr[0].first, arr[i+1].second-arr[0].second);
+    }
+    cout << fixed;
+    cout.precision(1);
+    temp /= 2;
+    ct(abs(temp));
 }
 
 

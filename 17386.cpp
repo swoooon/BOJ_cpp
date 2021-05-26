@@ -9,6 +9,7 @@ typedef long double ld;
 #define ct3(x, y, z) cout << x << ' ' << y << ' ' << z << '\n'
 #define ct4(x, y, z, w) cout << x << ' ' << y << ' ' << z << ' ' << w << '\n'
 
+
 const ll mod = 1e9+7;
 int dy[4] = {1, 0, -1, 0}, dx[4] = {0, 1, 0, -1};
 
@@ -27,8 +28,18 @@ void debug() {
 }
 
 
+ll ccw(ll x1, ll y1, ll x2, ll y2) {
+    if (x1*y2 - x2*y1 > 0) return 1;
+    else if (x1*y2 == x2*y1) return 0;
+    else return -1;
+}
 
 void solve() {
+    ll a, b, c, d, e, f, g, h;
+    cin >>a>>b>>c>>d>>e>>f>>g>>h;
+    ct(((ccw(c-a, d-b, e-a, f-b)*ccw(c-a, d-b, g-a, h-b) <= 0) && (ccw(g-e, h-f, a-e, b-f)*ccw(g-e, h-f, c-e, d-f) <= 0)));
+    //ct4(ccw(c-a, d-b, e-a, f-b), ccw(c-a, d-b, g-a, h-b) , ccw(g-e, h-f, a-e, b-f), ccw(g-e, h-f, c-e, d-f));
+
 
 }
 

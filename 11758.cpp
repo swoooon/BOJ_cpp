@@ -3,11 +3,7 @@
 using namespace std;
 typedef long long ll;
 typedef pair<ll, ll> pii;
-typedef long double ld;
 #define ct(x) cout << x << '\n'
-#define ct2(x, y) cout << x << ' ' << y << '\n'
-#define ct3(x, y, z) cout << x << ' ' << y << ' ' << z << '\n'
-#define ct4(x, y, z, w) cout << x << ' ' << y << ' ' << z << ' ' << w << '\n'
 
 const ll mod = 1e9+7;
 int dy[4] = {1, 0, -1, 0}, dx[4] = {0, 1, 0, -1};
@@ -28,7 +24,16 @@ void debug() {
 
 
 
+int ccw(int x1, int y1, int x2, int y2) {
+    return x1*y2-x2*y1;
+}
+
 void solve() {
+    int a1, a2, b1, b2, c1, c2;
+    cin >> a1 >> a2 >> b1 >> b2 >> c1 >> c2;
+    if (ccw(b1-a1, b2-a2, c1-a1, c2-a2) > 0) ct(1);
+    else if (ccw(b1-a1, b2-a2, c1-a1, c2-a2) < 0) ct(-1);
+    else ct(0);
 
 }
 
