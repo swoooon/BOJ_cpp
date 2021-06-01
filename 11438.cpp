@@ -50,14 +50,12 @@ void solve() {
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
-    memset(parent, -1, sizeof(parent));
     memset(depth, -1, sizeof(depth));
     depth[1] = 0;
     DFS(1);
     for (int j = 1; j < 20; j++) {
         for (int i = 1; i <= N; i++) {
-            if (parent[i][j-1] != -1)
-                parent[i][j] = parent[parent[i][j-1]][j-1];
+            parent[i][j] = parent[parent[i][j-1]][j-1];
         }
     }
 
