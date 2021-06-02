@@ -27,24 +27,33 @@ void debug() {
 }
 
 int N, Q;
-int depth[40404];
-int parent[40404][20];
-int dist[40404];
-int check[40404];
-vector<pii> adj[40404];
+int depth[100404];
+int parent[100404][20];
+int dist[100404];
+int check[100404];
+vector<pii> adj[100404];
+stack<int> st;
 
-void DFS(int curr) {
-    for (auto i: adj[curr]) {
-        int next = i.first;
-        int cost = i.second;
-        if (!check[next]) {
-            depth[next] = depth[curr] + 1;
-            parent[next][0] = curr;
-            dist[next] = dist[curr] + cost;
-            check[next] = 1;
-            DFS(next);
+void DFS(int a) {
+    st.push(a);
+
+    while (!st.empty()) {
+        int curr = st.top();
+        st.pop();
+        for (auto i: adj[curr]) {
+            int next = i.first;
+            int cost = i.second;
+            if (!check[next]) {
+                depth[next] = depth[curr] + 1;
+                parent[next][0] = curr;
+                dist[next] = dist[curr] + cost;
+                check[next] = 1;
+                st.push(next);
+            }
         }
     }
+
+
 }
 
 int LCA(int u, int v) {
