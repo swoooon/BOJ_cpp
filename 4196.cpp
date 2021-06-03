@@ -70,10 +70,6 @@ void solve() {
         int a, b; cin >> a>> b;
         adj[a].push_back(b);
     }
-    
-    for (int i = 1; i <= N; i++) {
-        if (dfsnode[i] == 0) getSCC(i);
-    }
     cnt = SN = 0;
     memset(dfsnode, 0, sizeof(dfsnode));
     memset(sccnode, 0, sizeof(sccnode));
