@@ -31,16 +31,16 @@ ll N, M;
 void solve() {
     cin >> N >> M;
     ll ori = (M*100)/N;
-    ll ans = 0;
-    if (ori >= 100) {
+    ll ans = -1;
+    if (ori >= 99) {
         ct(-1);
         return;
     }
-    ll l = 1, r = 10101010101;
+    ll l = 0, r = 1000000000;
     while (l <= r) {
         ll mid = (l+r)/2;
         ll k = (M + mid)*100/(N+mid);
-        if (ori <= k) r = mid -1, ans = mid;
+        if (ori < k) r = mid -1, ans = mid;
         else l = mid + 1;
     }
     ct(ans);
