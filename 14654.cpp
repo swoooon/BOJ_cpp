@@ -31,6 +31,7 @@ int arr[303][2];
 int N;
 void solve() {
     cin >> N;
+    for (int i = 0; i < 2; i++) for (int j = 0; j < N; j++) cin >> arr[j][i];
 
     int ans = 1, row = 1;
     int t = arr[0][0] == arr[0][1] % 3 + 1 ? 0 : 1;
