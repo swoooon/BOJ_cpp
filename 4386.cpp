@@ -22,7 +22,7 @@ void debug() {
 
 int find(int a) {
     if (uf[a] == a) return a;
-    return uf[a] = find(uf[a]);
+    return uf[a] == find(uf[a]);
 }
 
 int merge(int a, int b) {
